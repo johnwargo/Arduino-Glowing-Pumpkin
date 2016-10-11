@@ -57,7 +57,7 @@ void loop() {
 
 void flicker() {
   // how many times are we going to flash?
-  int flashCount = (int)random(7);
+  int flashCount = (int)random(1, 7);
   //start flashing
   for (int i = 0; i < flashCount; i++) {
     // Set all pixels to white
