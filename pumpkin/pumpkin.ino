@@ -21,8 +21,8 @@ int cRed[] = {255, 0, 0};
 int cWhite[] = {255, 255, 255};
 int cYellow[] = {255, 215, 0};
 //colors is an array of all of the colors
-int numColors = 6;
-int colors[] = {cBlue, cGreen, cOrange, cPurple, cRed, cYellow};
+int numColors = 7;
+int colors[] = {cBlue, cGreen, cOrange, cPurple, cRed, cWhite, cYellow};
 
 // specifies the Trinket pin the NeoPixel is connected to. For this project, it's pin 2.
 #define PIN            2
@@ -44,15 +44,19 @@ void setup() {
   //cut the brightness in half (1 to 256)
   pixels.setBrightness(64);
   pixels.show();
+
+  //Initialize the random number generator with a random seed pulled from
+  //analog pin #3
+  randomSeed(analogRead(3));
 }
 
 void loop() {
-  if ((int)random(10) > 8){
+  if ((int)random(10) > 8) {
     flicker();
   } else {
     //rotate the lights, picking a random color and a random delay value from 50-500
-    rotateLights(colors[(int)random(1, numColors)], (int)random(50, 500));
-  }  
+    rotateLights(colors[(int)random(1, numColors + 1)], (int)random(50, 500));
+  }
 }
 
 void flicker() {
@@ -69,11 +73,15 @@ void flicker() {
 }
 
 void rotateLights(int c[], int delVal) {
-  for (int i = 0; i < NUMPIXELS; i++) {
+  for (int i = 0; i < pixels.numPixels(); i++) {
     pixels.setPixelColor(i, pixels.Color(c[0], c[1], c[2]));
     pixels.show(); // This sends the updated pixel color to the hardware.
     delay(delVal); // Delay for a period of time (in milliseconds).
-  }  
+  }
+}
+
+void clearPixels() {
+  setColor(pixels.Color(0, 0, 0));
 }
 
 // Fill the dots one after the other with a color
@@ -82,18 +90,5 @@ void setColor(uint32_t c) {
     pixels.setPixelColor(i, c);
     pixels.show();
   }
-}
-
-// Fill the dots one after the other with a color
-void colorWipe(uint32_t c, uint8_t wait) {
-  for (uint16_t i = 0; i < pixels.numPixels(); i++) {
-    pixels.setPixelColor(i, c);
-    pixels.show();
-    delay(wait);
-  }
-}
-
-void clearPixels() {
-  colorWipe(pixels.Color(0, 0, 0), 0);
 }
 
