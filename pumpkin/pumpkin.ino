@@ -12,18 +12,6 @@
 #include <avr/power.h>
 #endif
 
-// color definitions
-//int cBlue[] = {0, 0, 255};
-//int cGreen[] = {0, 255, 0};
-//int cOrange[] = {255, 128, 1};
-//int cPurple[] = {128, 0, 128};
-//int cRed[] = {255, 0, 0};
-//int cWhite[] = {255, 255, 255};
-//int cYellow[] = {255, 215, 0};
-//colors is an array of all of the colors
-//int numColors = 7;
-//int colors[] = {cBlue, cGreen, cOrange, cPurple, cRed, cWhite, cYellow};
-
 // specifies the Trinket pin the NeoPixel is connected to. For this project, it's pin 2.
 #define PIN            2
 
