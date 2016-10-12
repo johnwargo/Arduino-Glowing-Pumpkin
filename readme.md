@@ -6,7 +6,7 @@ For Halloween this year, I wanted to place a glowing pumpkin in one of the front
 
 For my implementation of this, I used the following hardware:
 
-+ [13" craft pumpkin from Michael's](http://www.michaels.com/13in-orange-craft-pumpkin-by-ashland/10476419.html).
++ [13" Orange Craft Pumpkin by Ashland](http://www.michaels.com/13in-orange-craft-pumpkin-by-ashland/10476419.html).
 + [Adafruit Trinket - Mini Microcontroller - 5V Logic](https://www.adafruit.com/products/1501).
 + [NeoPixel Ring - 16 x 5050 RGB LED with Integrated Drivers](https://www.adafruit.com/products/1463).
 + [5V 2.4A Switching Power Supply w/ 20AWG 6' MicroUSB Cable](https://www.adafruit.com/products/1995)
