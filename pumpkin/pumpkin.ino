@@ -13,16 +13,16 @@
 #endif
 
 // color definitions
-int cBlue[] = {0, 0, 255};
-int cGreen[] = {0, 255, 0};
-int cOrange[] = {255, 128, 1};
-int cPurple[] = {128, 0, 128};
-int cRed[] = {255, 0, 0};
-int cWhite[] = {255, 255, 255};
-int cYellow[] = {255, 215, 0};
+//int cBlue[] = {0, 0, 255};
+//int cGreen[] = {0, 255, 0};
+//int cOrange[] = {255, 128, 1};
+//int cPurple[] = {128, 0, 128};
+//int cRed[] = {255, 0, 0};
+//int cWhite[] = {255, 255, 255};
+//int cYellow[] = {255, 215, 0};
 //colors is an array of all of the colors
-int numColors = 7;
-int colors[] = {cBlue, cGreen, cOrange, cPurple, cRed, cWhite, cYellow};
+//int numColors = 7;
+//int colors[] = {cBlue, cGreen, cOrange, cPurple, cRed, cWhite, cYellow};
 
 // specifies the Trinket pin the NeoPixel is connected to. For this project, it's pin 2.
 #define PIN            2
@@ -34,6 +34,19 @@ int colors[] = {cBlue, cGreen, cOrange, cPurple, cRed, cWhite, cYellow};
 // Let the NeoPixel library know how many LEDs we have and which pin it's connected to
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
+// color definitions
+uint32_t cBlue = pixels.Color(0, 0, 255);
+uint32_t cGreen = pixels.Color(0, 255, 0);
+uint32_t cNone = pixels.Color(0, 0, 0);
+uint32_t cOrange = pixels.Color(255, 128, 1);
+uint32_t cPurple = pixels.Color(128, 0, 128);
+uint32_t cRed = pixels.Color(255, 0, 0);
+uint32_t cWhite = pixels.Color(255, 255, 255);
+uint32_t cYellow = pixels.Color(255, 215, 0);
+//colors is an array of all of the colors
+int numColors = 7;
+uint32_t colors[] = {cBlue, cGreen, cOrange, cPurple, cRed, cWhite, cYellow};
+
 void setup() {
   // This is for Trinket 5V 16MHz, you can remove these three lines if you are not using a Trinket
 #if defined (__AVR_ATtiny85__)
@@ -41,7 +54,7 @@ void setup() {
 #endif
   // End of trinket special code
   pixels.begin(); // This initializes the NeoPixel library.
-  //cut the brightness in half (1 to 256)
+  //Set pixel brightness (1 to 256)
   pixels.setBrightness(64);
   pixels.show();
 
@@ -51,44 +64,50 @@ void setup() {
 }
 
 void loop() {
-  if ((int)random(10) > 8) {
+  //generate a random integer between 1 and 10
+  //if it's a 9 or a 10, ...
+  if ((int)random(11) > 8) {
+    //do that flicker thing
     flicker();
   } else {
-    //rotate the lights, picking a random color and a random delay value from 50-500
-    rotateLights(colors[(int)random(1, numColors + 1)], (int)random(50, 500));
+    //otherwise, pick a random color and set each pixel individually to that color
+    //with a random time delay between setting each pixel       
+    stepLights(colors[(int)random(1, numColors + 1)], (int)random(50, 500));
   }
 }
 
 void flicker() {
   // how many times are we going to flash?
   int flashCount = (int)random(1, 7);
-  //start flashing
+  //flash the lights in white flashCount times
+  //with a random duration and random delay between each flash
   for (int i = 0; i < flashCount; i++) {
-    // Set all pixels to white
-    setColor(pixels.Color(127, 127, 127));
-    delay((int)random(50, 150)); // Delay for a period of time (in milliseconds).
-    clearPixels();
+    // Set all pixels to white and turn them on
+    setColor(cWhite);
+    // Delay for a random period of time (in milliseconds)
+    delay((int)random(50, 150)); 
+    //clear the lights (set the color to none)
+    setColor(cNone);
+    // Delay for a random period of time (in milliseconds)
     delay((int)random(100, 500));
   }
 }
 
-void rotateLights(int c[], int delVal) {
-  for (int i = 0; i < pixels.numPixels(); i++) {
-    pixels.setPixelColor(i, pixels.Color(c[0], c[1], c[2]));
-    pixels.show(); // This sends the updated pixel color to the hardware.
-    delay(delVal); // Delay for a period of time (in milliseconds).
-  }
-}
-
-void clearPixels() {
-  setColor(pixels.Color(0, 0, 0));
-}
-
-// Fill the dots one after the other with a color
-void setColor(uint32_t c) {
+void stepLights(uint32_t c, int delayVal) {
   for (uint16_t i = 0; i < pixels.numPixels(); i++) {
     pixels.setPixelColor(i, c);
-    pixels.show();
+    //send the updated pixel color to the hardware.
+    pixels.show(); 
+    //wait for the specified period of time (in milliseconds)
+    delay(delayVal); 
   }
+}
+
+// Fill the pixels with a specific color
+void setColor(uint32_t c) {
+  for (uint16_t i = 0; i < pixels.numPixels(); i++) {
+    pixels.setPixelColor(i, c);    
+  }
+  pixels.show();
 }
 
