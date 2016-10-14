@@ -35,7 +35,7 @@ Looking at the code, if you're not running the 5V trinket, you can remove the fo
 	  if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
 	#endif
 
-The code is inside of an if statement, so it won't execute anyway if you aren't running on a Trinket 5v, but your code can never be too clean.
+The code is inside of an `if` statement, so it won't execute anyway if you aren't running on a Trinket 5v, but your code can never be too clean.
 
 If you connect the NeoPixel ring to a different Trinket digital output pin, look for the following code in the application:
 
