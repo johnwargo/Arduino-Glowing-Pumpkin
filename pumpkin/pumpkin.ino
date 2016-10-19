@@ -43,7 +43,7 @@ void setup() {
   // End of trinket special code
   pixels.begin(); // This initializes the NeoPixel library.
   //Set pixel brightness (1 to 256)
-  pixels.setBrightness(64);
+  //pixels.setBrightness(64);
   pixels.show();
 
   //Initialize the random number generator with a random seed pulled from
@@ -98,4 +98,3 @@ void setColor(uint32_t c) {
   }
   pixels.show();
 }
-
