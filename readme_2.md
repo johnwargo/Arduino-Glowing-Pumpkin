@@ -1,19 +1,24 @@
-# Arduino Glowing Pumpkin
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-**Table of Contents**
-
-- [Hardware List](#hardware-list)
-- [Assembly](#assembly)
+- [Arduino Glowing Pumpkin](#arduino-glowing-pumpkin)
+  - [Hardware List](#hardware-list)
+  - [Assembly](#assembly)
     - [Drilling Some Holes](#drilling-some-holes)
     - [Soldering Connections](#soldering-connections)
     - [Programming](#programming)
     - [Final Assembly](#final-assembly)
-- [Customizing the Code for Your Hardware Configuration](#customizing-the-code-for-your-hardware-configuration)
+  - [Customizing the Code for Your Hardware Configuration](#customizing-the-code-for-your-hardware-configuration)
     - [Trinket Settings](#trinket-settings)
     - [Digital Output Pin](#digital-output-pin)
     - [Number of NeoPixel LEDs](#number-of-neopixel-leds)
     - [NetPixel Constants](#netpixel-constants)
-- [Application Code](#application-code)
+  - [Application Code](#application-code)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Arduino Glowing Pumpkin
 
 For Halloween this year, I wanted to place a glowing pumpkin in one of the front dormers of our house. I didn't want to have a simple, single color light inside, but something more interactive, so I decided to make this an Arduino project with some tri-color LEDs inside to display different colors. I used a NeoPixel ring, so I had a ring of LEDs I could work with to illuminate the pumpkin. I wanted the pumpkin to glow randomly, but I also wanted it to flash periodically to catch viewer's attention. Of course, this was easy to code on the Arduino.
 
