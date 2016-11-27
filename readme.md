@@ -19,6 +19,11 @@ For Halloween this year, I wanted to place a glowing pumpkin in one of the front
 
 ![Finished Project](images/figure-01.png)
 
+Here's the project in action:
+
+<iframe src="https://player.vimeo.com/video/189246676" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/189246676">Arduino-powered Glowing Pumpkin</a> from <a href="https://vimeo.com/user39135142">John Wargo</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
 ## Hardware List
 
 For my implementation of this, I used the following hardware:
