@@ -16,31 +16,32 @@
 #define PIN            2
 // Specifies the number of NeoPixels that are attached to the Trinket
 // Change this value if you're using a 12 LED ring or some other NeoPixel configuration
-#define NUMPIXELS      16
+#define NUMPIXELS      7
 
 //For normal NeoPixels, use this:
-Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+//Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 // color definitions
-uint32_t cBlue = pixels.Color(0, 0, 255);
-uint32_t cGreen = pixels.Color(0, 255, 0);
-uint32_t cNone = pixels.Color(0, 0, 0);
-uint32_t cOrange = pixels.Color(255, 128, 1);
-uint32_t cPurple = pixels.Color(128, 0, 128);
-uint32_t cRed = pixels.Color(255, 0, 0);
-uint32_t cWhite = pixels.Color(255, 255, 255);
-uint32_t cYellow = pixels.Color(255, 215, 0);
+//uint32_t cBlue = pixels.Color(0, 0, 255);
+//uint32_t cGreen = pixels.Color(0, 255, 0);
+//uint32_t cNone = pixels.Color(0, 0, 0);
+//uint32_t cOrange = pixels.Color(255, 128, 1);
+//uint32_t cPurple = pixels.Color(128, 0, 128);
+//uint32_t cRed = pixels.Color(255, 0, 0);
+//uint32_t cWhite = pixels.Color(255, 255, 255);
+//uint32_t cYellow = pixels.Color(255, 215, 0);
 
 //// for RGBW NeoPixels, you have to switch to this:
-//Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRBW + NEO_KHZ800);
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRBW + NEO_KHZ800);
 //// color definitions
-//uint32_t cBlue = pixels.Color(0, 0, 255, 0);
-//uint32_t cGreen = pixels.Color(0, 255, 0, 0);
-//uint32_t cNone = pixels.Color(0, 0, 0, 0);
-//uint32_t cOrange = pixels.Color(255, 128, 1, 0);
-//uint32_t cPurple = pixels.Color(128, 0, 128, 0);
-//uint32_t cRed = pixels.Color(255, 0, 0, 0);
-//uint32_t cWhite = pixels.Color(0, 0, 0, 255);
-//uint32_t cYellow = pixels.Color(255, 215, 0, 0);
+uint32_t cBlue = pixels.Color(0, 0, 255, 0);
+uint32_t cGreen = pixels.Color(0, 255, 0, 0);
+uint32_t cNone = pixels.Color(0, 0, 0, 0);
+uint32_t cOrange = pixels.Color(255, 128, 1, 0);
+uint32_t cPurple = pixels.Color(128, 0, 128, 0);
+uint32_t cRed = pixels.Color(255, 0, 0, 0);
+uint32_t cWhite = pixels.Color(0, 0, 0, 255);
+uint32_t cYellow = pixels.Color(255, 215, 0, 0);
+
 ////colors is an array of all of the colors
 int numColors = 7;
 uint32_t colors[] = {cBlue, cGreen, cOrange, cPurple, cRed, cWhite, cYellow};
@@ -109,4 +110,3 @@ void setColor(uint32_t c) {
   }
   pixels.show();
 }
-
