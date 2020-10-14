@@ -24,7 +24,7 @@ Here's the project in action; it's a little hard to see the colors change, but i
 <iframe src="https://player.vimeo.com/video/189246676" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <p><a href="https://vimeo.com/189246676">Arduino-powered Glowing Pumpkin</a> from <a href="https://vimeo.com/user39135142">John Wargo</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
-This is version 1 of this project. I used the Adafruit NeoPixel libraries for this version and, because the NeoPixel libraries don't allow you to change the LED brightness beyond the initial setting set during initialization, I had to do the goofy color shift you'll see below. In version 2, I used the FastLED library which does allow for changing LED brightness on the fly. 
+This is version 1 of this project. I used the Adafruit NeoPixel libraries for this version and, because the NeoPixel libraries don't allow you to change the LED brightness beyond the initial setting set during initialization, I had to do the goofy color shift you'll see below. In [version 2](https://github.com/johnwargo/glowing-pumpkin-trinket-neopixel-v2), I used the FastLED library which does allow for changing LED brightness on the fly. 
 
 ## Hardware List
 
