@@ -24,6 +24,8 @@ Here's the project in action; it's a little hard to see the colors change, but i
 <iframe src="https://player.vimeo.com/video/189246676" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <p><a href="https://vimeo.com/189246676">Arduino-powered Glowing Pumpkin</a> from <a href="https://vimeo.com/user39135142">John Wargo</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
+This is version 1 of this project. I used the Adafruit NeoPixel libraries for this version and, because the NeoPixel libraries don't allow you to change the LED brightness beyond the initial setting set during initialization, I had to do the goofy color shift you'll see below. In version 2, I used the FastLED library which does allow for changing LED brightness on the fly. 
+
 ## Hardware List
 
 For my implementation of this, I used the following hardware:
@@ -32,7 +34,7 @@ For my implementation of this, I used the following hardware:
 + [Adafruit Trinket - Mini Microcontroller - 5V Logic](https://www.adafruit.com/products/1501).
 + [NeoPixel Ring - 16 x 5050 RGB LED with Integrated Drivers](https://www.adafruit.com/products/1463).
 + [5V 2.4A Switching Power Supply w/ 20AWG 6' MicroUSB Cable](https://www.adafruit.com/products/1995)
- 
+
 I started with the 16 LED NeoPixel because that's what I had on hand. Later, I switched to the [NeoPixel Jewel - 7 x 5050 RGB LED with Integrated Drivers](https://www.adafruit.com/products/2226). When you look at the code, you'll see two blocks of code at the start of the application that control settings for the NeoPixels. Be sure to uncomment the code for your NeoPixel configuration and comment out the other block of code before you compile the application. 
 
 ## Assembly
@@ -113,11 +115,11 @@ If you're using a NeoPixel with a different number of LEDs, look for the followi
 
 	// Specifies the number of NeoPixels that are attached to the Trinket
 	// Change this value if you're using a 12 LED ring or some other NeoPixel configuration
-	#define NUMPIXELS      16
+	#define NUMPIXELS      7
 
 Change the `16` for `NUMPIXELS` to the number of LEDs in your NeoPixel. Also, NeoPixels eat up a bunch of power, so if you run the code and the lights don't work like you're expecting, try reduce the number in `NUMPIXELS` to see if it works better when not using all LEDs in your NeoPixel. 
 
-### NetPixel Constants
+### NeoPixel Constants
 
 The enhance code readability, I defined a bunch of color constants in the code. The original NeoPixel devices used **RGB (Red, Green, Blue)** LEDs, so my constants (and the code to initialize the NeoPixel library) used to three value color constants. If you're using one of these NeoPixels, be sure the following lines of code in the application are *uncommented* like they are in the example below: 
 
@@ -157,7 +159,7 @@ The application's `setup` function initializes the NeoPixel array and the random
 	    if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
 	  #endif
 	  // End of trinket special code
-
+	
 	  // Initialize the NeoPixel library
 	  pixels.begin();
 	  // show any lights that should be on (in this case, none)
