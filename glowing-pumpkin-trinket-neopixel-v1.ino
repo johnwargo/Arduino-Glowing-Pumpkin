@@ -32,7 +32,7 @@
 
 //// for RGBW NeoPixels, you have to switch to this:
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRBW + NEO_KHZ800);
-//// color definitions
+// color definitions
 uint32_t cBlue = pixels.Color(0, 0, 255, 0);
 uint32_t cGreen = pixels.Color(0, 255, 0, 0);
 uint32_t cNone = pixels.Color(0, 0, 0, 0);
